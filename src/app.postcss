@@ -1,8 +1,104 @@
-/* Write your global styles here, in PostCSS syntax */
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500;1,600;1,700;1,800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-	@apply bg-neutral-900 text-white;
+@layer base {
+	:root {
+		--radius: 0.75rem;
+		--border: theme('colors.base.200');
+
+		--color-primary: 240 6% 10%;
+		--color-primary-focus: theme('colors.primary.800');
+		--color-primary-foreground: theme('colors.primary.50');
+
+		--color-accent: theme('colors.accent.500');
+		--color-accent-focus: theme('colors.accent.600');
+		--color-accent-foreground: theme('colors.accent.950');
+
+		--color-background: 0 0% 98%;
+		--color-foreground: 240 6% 10%;
+
+		--color-muted: theme('colors.base.200');
+		--color-muted-foreground: theme('colors.base.500');
+
+		--color-success: theme('colors.success.400');
+		--color-success-focus: theme('colors.success.300');
+		--color-success-foreground: theme('colors.success.950');
+
+		--color-warning: theme('colors.warning.400');
+		--color-warning-focus: theme('colors.warning.300');
+		--color-warning-foreground: theme('colors.warning.950');
+
+		--color-error: theme('colors.error.500');
+		--color-error-focus: theme('colors.error.600');
+		--color-error-foreground: theme('colors.error.50');
+
+		--color-info: theme('colors.info.500');
+		--color-info-focus: theme('colors.info.600');
+		--color-info-foreground: theme('colors.info.50');
+
+		--color-popover: theme('colors.base.50');
+		--color-popover-foreground: theme('colors.base.900');
+		--color-popover-border: theme('colors.base.200');
+	}
+	.dark {
+		--border: theme('colors.base.800');
+
+		--color-primary: 0 0% 98%;
+		--color-primary-focus: theme('colors.primary.200');
+		--color-primary-foreground: theme('colors.primary.950');
+
+		--color-accent: theme('colors.accent.600');
+		--color-accent-focus: theme('colors.accent.500');
+		--color-accent-foreground: theme('colors.accent.500');
+
+		--color-background: 240 10% 4%;
+		--color-foreground: 0 0% 98%;
+
+		--color-muted: theme('colors.base.900');
+		--color-muted-foreground: theme('colors.base.400');
+
+		--color-success: theme('colors.success.500');
+		--color-success-focus: theme('colors.success.400');
+		--color-success-foreground: theme('colors.success.950');
+
+		--color-warning: theme('colors.warning.500');
+		--color-warning-focus: theme('colors.warning.400');
+		--color-warning-foreground: theme('colors.warning.950');
+
+		--color-error: theme('colors.error.600');
+		--color-error-focus: theme('colors.error.700');
+		--color-error-foreground: theme('colors.error.50');
+
+		--color-info: theme('colors.info.500');
+		--color-info-focus: theme('colors.info.600');
+		--color-info-foreground: theme('colors.info.50');
+
+		--color-popover: theme('colors.base.950');
+		--color-popover-foreground: theme('colors.base.50');
+		--color-popover-border: theme('colors.base.800');
+	}
+	input[data-autocompleted] {
+		background-color: transparent !important;
+	}
+
+	input::-webkit-outer-spin-button,
+	input::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+	html {
+		color-scheme: light dark;
+		scroll-behaviour: smooth;
+	}
+
+	body {
+		@apply bg-background min-h-screen text-foreground selection:bg-accent-500/30 overscroll-y-none transition-colors font-sans;
+		-webkit-tap-highlight-color: transparent;
+	}
+}
+
+.tippy-box {
+	@apply inline-block rounded-lg border border-border bg-background px-2.5 py-1 text-sm font-medium shadow-sm;
 }
